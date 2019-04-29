@@ -1,7 +1,7 @@
 new Vue().$mount('#app');
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'file://G:/liehuoe.github.io/data.db', true);
+xhr.open('GET', './data.db', true);
 xhr.responseType = 'arraybuffer';
 xhr.onload = e => {
   var uInt8Array = new Uint8Array(xhr.response);
