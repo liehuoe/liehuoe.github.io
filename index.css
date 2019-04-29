@@ -1,0 +1,20 @@
+  html, body, #app {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .el-aside {
+    background-color: #D3DCE6;
+    text-align: center;
+    line-height: 200px;
+  }
+  
+  .el-main {
+    background-color: #E9EEF3;
+    text-align: center;
+    line-height: 160px;
+  }
+  
+  .el-container {
+    height: 100%;
+  }
