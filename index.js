@@ -1,14 +1,12 @@
 new Vue().$mount('#app');
 
-$.ajax({
-  type: "GET",
-  url: "data.db",
-  success: function(data) {
-      var db = new SQL.Database(new Uint8Array(data));
-      var stmt = db.prepare("SELECT * FROM people");
-      while(stmt.step()) {
-          var row = stmt.getAsObject();
-          console.log('Here is a row: ' + JSON.stringify(row));
-      }
-  }
-});
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'file://G:/liehuoe.github.io/data.db', true);
+xhr.responseType = 'arraybuffer';
+xhr.onload = e => {
+  var uInt8Array = new Uint8Array(xhr.response);
+  var db = new SQL.Database(uInt8Array);
+  var res = db.exec("select * from people");
+  console.log(JSON.stringify(res));
+};
+xhr.send();
